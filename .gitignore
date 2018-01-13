@@ -1,0 +1,16 @@
+## KEV .gitignore
+
+# git clone github:ooblog/KEV3.git
+# git status
+# git push github:ooblog/KEV3.git master
+# git push github:ooblog/KEV3.git 20180113S233401
+# git log
+# git ls-files
+# git commit -a -m ""
+# git reset --soft HEAD^
+# git branch
+# git checkout master
+# git checkout 20180113S233401
+# git merge 20180113S233401
+# git branch -d 20180113S233401
+
