@@ -7,22 +7,22 @@
 KEVは約２ストローク(鍵盤切替時のスペース入力はSandSすなわちシフト扱い)のかな入力で、漢字変換を用いず直接漢字などが入力できます(予定)。  
 独自のかな配列(括弧の位置がUSキーボードとJISキーボードでズレます)を用いる事で、USキーボード買ったのにJISキーボード設定のままみたいな混在環境でも日本語入力できます。  
 
-&#35;!	あいうえおかきくけこ〜
-&#35;!	さしすせそたちつてと「」
-&#35;!	なにぬねのやゆよわをん
-&#35;!	まみむめもらりるれろ
-&#35;!	ぁぃぅぇぉがぎぐげごゔ
-&#35;!	ざじずぜぞだじづでど『』
-&#35;!	はひふへほゃゅょっ、。
-&#35;!	ばびぶべぼぱぴぷぺぽ
-&#35;!	アイウエオカキクケコー
-&#35;!	サシスセソタチツテト・…
-&#35;!	ナニヌネノワヲヤユヨン
-&#35;!	マミムメモラリルレロ
-&#35;!	ァィゥェォガギグゲゴヴ
-&#35;!	ザジズゼゾダヂヅデド！？
-&#35;!	ハヒフヘホャュョッ，．
-&#35;!	バビブベボパピプペポ
+&#35;!	あいうえおかきくけこ〜  
+&#35;!	さしすせそたちつてと「」  
+&#35;!	なにぬねのやゆよわをん  
+&#35;!	まみむめもらりるれろ  
+&#35;!	ぁぃぅぇぉがぎぐげごゔ  
+&#35;!	ざじずぜぞだじづでど『』  
+&#35;!	はひふへほゃゅょっ、。  
+&#35;!	ばびぶべぼぱぴぷぺぽ  
+&#35;!	アイウエオカキクケコー  
+&#35;!	サシスセソタチツテト・…  
+&#35;!	ナニヌネノワヲヤユヨン  
+&#35;!	マミムメモラリルレロ  
+&#35;!	ァィゥェォガギグゲゴヴ  
+&#35;!	ザジズゼゾダヂヅデド！？  
+&#35;!	ハヒフヘホャュョッ，．  
+&#35;!	バビブベボパピプペポ  
 
 
 ## 既存のIMEおよびその他の漢直系日本語入と違う所。
@@ -41,10 +41,10 @@ IMEを起動しないのでモード切替時に全角半角キーを押す手�
 ☑a-z	文字入力/字引漢直(単漢字辞書kanchar.tsf)  
 ☑A-Z	一文字検索下方向(&lt;C-o&gt;/)  
 ☑&lt;S-Space&gt;	一文字検索上方向(&lt;C-o&gt;?)  
-☐&lt;Space&gt;a-z	鍵盤変更/清濁変更/かなカタ変更(漢直鍵盤kanmap.tsf)  
-☐&lt;Space&gt;A-Z	字引項目を設定(単漢字辞書kanchar.tsf)  
+☐&lt;Space&gt;a-z	鍵盤変更/清濁変更/かなカタ変更([漢直鍵盤kanmap.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanmap.tsf "KEV3/KEV3_kanmap.tsf at master · ooblog/KEV3"))  
+☐&lt;Space&gt;A-Z	字引項目を設定([単漢字辞書kanchar.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanchar..tsf "KEV3/KEV3_kanchar..tsf at master · ooblog/KEV3"))  
 ☐&lt;Space&gt;&lt;S-Space&gt;	字引項目の解除  
-☐&lt;Space&gt;&lt;S-Enter&gt;a-z		漢直鍵盤上書き編集(漢直鍵盤kanmap.tsf)  
+☐&lt;Space&gt;&lt;S-Enter&gt;a-z		[漢直鍵盤kanmap.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanmap.tsf "KEV3/KEV3_kanmap.tsf at master · ooblog/KEV3")上書き編集/[単漢字辞書kanchar.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanchar..tsf "KEV3/KEV3_kanchar..tsf at master · ooblog/KEV3")上書き編集  
 
 
 ## 拡張子TSFってTSVと何が違うの？
