@@ -42,6 +42,7 @@ IMEを起動しないのでモード切替時に全角半角キーを押す手�
 ☑A-Z	一文字検索下方向(&lt;C-o&gt;/)  
 ☑&lt;S-Space&gt;	一文字検索上方向(&lt;C-o&gt;?)  
 ☐&lt;Space&gt;a-z	鍵盤変更/清濁変更/かなカタ変更([漢直鍵盤kanmap.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanmap.tsf "KEV3/KEV3_kanmap.tsf at master · ooblog/KEV3"))  
+☐&lt;Space&gt;&lt;Tab&gt;	清音ひらがな鍵盤に変更([漢直鍵盤kanmap.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanmap.tsf "KEV3/KEV3_kanmap.tsf at master · ooblog/KEV3"))  
 ☐&lt;Space&gt;A-Z	字引項目を設定([単漢字辞書kanchar.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanchar..tsf "KEV3/KEV3_kanchar..tsf at master · ooblog/KEV3"))  
 ☐&lt;Space&gt;&lt;S-Space&gt;	字引項目の解除  
 ☐&lt;Space&gt;&lt;S-Enter&gt;a-z		[漢直鍵盤kanmap.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanmap.tsf "KEV3/KEV3_kanmap.tsf at master · ooblog/KEV3")上書き編集/[単漢字辞書kanchar.tsf](https://github.com/ooblog/KEV3/blob/master/autoload/KEV3_kanchar..tsf "KEV3/KEV3_kanchar..tsf at master · ooblog/KEV3")上書き編集  

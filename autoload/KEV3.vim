@@ -9,17 +9,13 @@ let g:loaded_KEV3 = 1
 
 "「KanEditVim3」の起動。
 function! KEV3#KEV3boot()
-call KEV3setup('[『',']』')
-"call KEV3setup('[！',']？') "US
-"call KEV3setup('[『',']』') "JIS
+call KEV3setup('[『',']』','-〜')
+"call KEV3setup('[！',']？','-〜') "US
+"call KEV3setup('[『',']』','-〜') "JIS
 endfunction
 
 "「KanEditVim3」の初期化。鍵盤読込。
-function! KEV3setup(KEV3_inputkey,KEV3_findkey)
-    map <silent> <Space><Space> a
-    vmap <silent> <Space><Space> <Esc>
-    imap <silent> <Space><Space> <Esc>
-    imap <silent> <Space><Enter> <C-V><Space>
+function! KEV3setup(KEV3_inputkey,KEV3_findkey,KEV3_kanakey)
     let s:KEV3_inputESCs = {"\t":"<Tab>",' ':"<Space>",'<':"<lt>",'\':"<Bslash>",'|':"<Bar>",'-':"<Minus>",'.':"<Point>"}
     let s:KEV3_menuESCs = "\t\\:|< >.-"
     let s:KEV3_findESCs = ".*[]^%/\?~$"
@@ -31,6 +27,7 @@ function! KEV3setup(KEV3_inputkey,KEV3_findkey)
     let s:KEV3_inputkeys = ['1','2','3','4','5','6','7','8','9','0','-','q','w','e','r','t','y','u','i','o','p','[',']','a','s','d','f','g','h','j','k','l',';',':','z','x','c','v','b','n','m',',','.','/']
     let s:KEV3_findkeys = ['!','"','#','$','%','&',"'",'(',')','~','=','Q','W','E','R','T','Y','U','I','O','P','{','}','A','S','D','F','G','H','J','K','L','+','*','Z','X','C','V','B','N','M','<','>','?']
     let s:KEV3_kanmapkeyI = count(s:KEV3_kanmapkeysY,a:KEV3_inputkey) ? a:KEV3_inputkey : "[『"
+    let s:KEV3_kanmapkeyK = count(s:KEV3_kanmapkeysY,a:KEV3_kanakey) ? a:KEV3_kanakey : s:KEV3_kanmapkeyI
     let s:KEV3_kanmapkeyF = count(s:KEV3_kanmapkeysY,a:KEV3_findkey) ? a:KEV3_findkey : "]』"
     let s:KEV3_kanmapkeyD = "　"
     call KEV3pullmenu(1)
@@ -53,12 +50,20 @@ function! KEV3setup(KEV3_inputkey,KEV3_findkey)
             :endif
         :endfor
     :endif
+    map <silent> <Space><Space> a
+    vmap <silent> <Space><Space> <Esc>
+    imap <silent> <Space><Space> <Esc>
+    imap <silent> <Space><Enter> <C-V><Space>
+    execute "imap <silent> <Space><Tab> <C-o><Plug>(KEV3map" . s:KEV3_kanmapkeyK . ")"
+    :for s:inputkey in range(len(s:KEV3_kanmapkeysY))
+        execute "noremap <Plug>(KEV3map" . s:KEV3_kanmapkeysY[s:inputkey] . ") :call KEV3map('" . s:KEV3_kanmapkeysY[s:inputkey] . "')<Enter>"
+    :endfor
     let s:KEV3_menuid = 10000
-    let s:KEV3_menumap = "「鍵盤"
+    let s:KEV3_menumap = "【鍵盤"
     let s:KEV3_menumapid = s:KEV3_menuid+0
     let s:KEV3_menudic = "文字"
     let s:KEV3_menudicid = s:KEV3_menuid+1
-    let s:KEV3_menuhelp = "KEV3」"
+    let s:KEV3_menuhelp = "&KEV3】"
     let s:KEV3_menuhelpid = s:KEV3_menuid+2
     execute "amenu  <silent> " . (s:KEV3_menuhelpid) . ".01 " . s:KEV3_menuhelp . ".ヘルプ(KEV3\\.vimを開く) <Plug>(KEV3help)"
     execute "noremap <Plug>(KEV3help) :call KEV3help('KEV3.vim')<Enter>"
@@ -72,9 +77,9 @@ function! KEV3setup(KEV3_inputkey,KEV3_findkey)
     execute "noremap <Plug>(KEV3char) :call KEV3help('KEV3_kanchar.tsf')<Enter>"
     execute "amenu  <silent> " . (s:KEV3_menuhelpid) . ".90 " . s:KEV3_menuhelp . ".-sep_filer- :"
     execute "amenu  <silent> " . (s:KEV3_menuhelpid) . ".91 " . s:KEV3_menuhelp . ".USキーボード" . ((s:KEV3_kanmapkeyI=='[！')&&(s:KEV3_kanmapkeyF==']？')?"✓":"で再開") . " <Plug>(KEV3setupUS)"
-    execute "noremap <Plug>(KEV3setupUS) :call KEV3setup('[！',']？')<Enter>"
+    execute "noremap <Plug>(KEV3setupUS) :call KEV3setup('[！',']？'," s:KEV3_kanmapkeyK . ")<Enter>"
     execute "amenu  <silent> " . (s:KEV3_menuhelpid) . ".91 " . s:KEV3_menuhelp . ".JISキーボード" . ((s:KEV3_kanmapkeyI=='[『')&&(s:KEV3_kanmapkeyF==']』')?"✓":"で再開") . " <Plug>(KEV3setupJIS)"
-    execute "noremap <Plug>(KEV3setupJIS) :call KEV3setup('[『',']』')<Enter>"
+    execute "noremap <Plug>(KEV3setupJIS) :call KEV3setup('[『',']』'" s:KEV3_kanmapkeyK . ")<Enter>"
     execute "amenu  <silent> " . (s:KEV3_menuhelpid) . ".99 " . s:KEV3_menuhelp . ".KEV3終了(「call\\ KEV3#KEV3boot()」で再開) <Plug>(KEV3exit)"
     execute "noremap <Plug>(KEV3exit) :call KEV3exit()<Enter>"
     call KEV3pushmenu()
@@ -111,8 +116,8 @@ endfunction
 
 "メニューなどの構築。
 function! KEV3pushmenu()
-    let s:KEV3_menumap = escape("「" . s:KEV3_kanmapkeyI,s:KEV3_menuESCs)
-    let s:KEV3_menudic = escape("『" . s:KEV3_kanmapkeyD . "』",s:KEV3_menuESCs)
+    let s:KEV3_menumap = escape("【" . s:KEV3_kanmapkeyI,s:KEV3_menuESCs)
+    let s:KEV3_menudic = escape("〔" . s:KEV3_kanmapkeyD . "〕",s:KEV3_menuESCs)
     :for s:inputkey in range(len(s:KEV3_kanmapkeysX))
         let s:dicchar = s:KEV3_kanmap[s:KEV3_kanmapkeyI][s:inputkey]
 "        let s:dicchar = len(s:dicchar) ? "　" : KEV3kancharpeekL(s:dicchar,s:KEV3_kanmapkeyD)
@@ -126,7 +131,7 @@ function! KEV3pushmenu()
         execute "imap <silent> " . s:KEV3_findkeys[s:inputkey] . " <C-o>/" . s:Fchar . "<Enter>"
         let s:Mchar = s:KEV3_kanmapkeysX[s:inputkey]
         execute "imap <silent> <Space>" . s:KEV3_inputkeys[s:inputkey] . " <C-o><Plug>(KEV3map" . s:Mchar . ")"
-        execute "noremap <Plug>(KEV3map" . s:Mchar . ") :call KEV3map('" . s:Mchar . "')<Enter>"
+"        execute "noremap <Plug>(KEV3map" . s:Mchar . ") :call KEV3map('" . s:Mchar . "')<Enter>"
     :endfor
     execute "imap <silent> <S-Space> <C-o>?<Enter>"
 
