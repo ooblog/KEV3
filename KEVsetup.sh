@@ -7,3 +7,4 @@ cp plugin/KEV3.vim ~/.vim/plugin/KEV3.vim
 cp autoload/KEV3.vim ~/.vim/autoload/KEV3.vim
 cp autoload/KEV3_kanmap.tsf ~/.vim/autoload/KEV3_kanmap.tsf
 cp autoload/KEV3_kanchar.tsf ~/.vim/autoload/KEV3_kanchar.tsf
+cp autoload/KEV3_README.md ~/.vim/autoload/README.md
