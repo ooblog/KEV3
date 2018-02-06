@@ -5,7 +5,7 @@ if exists('g:loaded_KEV3')
 endif
 let g:loaded_KEV3 = 1
 
-call KEV3#KEV3boot()
+"call KEV3#KEV3boot()
 command KEV3 :call KEV3#KEV3boot()
 
 finish
