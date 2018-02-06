@@ -1,6 +1,6 @@
 # 漢字直接入力＆漢字直接検索Vimプラグイン「KanEditVim」ver3(開発拠点は「KanjiInputVim」に移動)。
 
-メニューのALT+Eが衝突する事に気が付いたので、「KanEditVim」改め「([KanjiInputVim](https://github.com/ooblog/KIV "ooblog/KIV: 漢字直接入力＆漢字直接検索Vimプラグイン「KanjiInputVim」(準備中)。"))」と名称変更して作り直し。  
+メニューのALT+Eが衝突する事に気が付いたので、「KanEditVim」改め「[KanjiInputVim](https://github.com/ooblog/KIV "ooblog/KIV: 漢字直接入力＆漢字直接検索Vimプラグイン「KanjiInputVim」(準備中)。")」と名称変更して作り直し。  
 
 
 ## KEV超ザックリ説明。
